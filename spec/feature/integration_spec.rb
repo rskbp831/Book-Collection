@@ -5,6 +5,11 @@ RSpec.describe 'Creating a book', type: :feature do
   scenario 'valid inputs' do
     visit new_book_path
     fill_in 'Title', with: 'harry potter'
+    fill_in 'Author', with: 'J.K. Rowling'
+    fill_in 'Price', with: '8.0'
+    # field_labeled('Datep', disabled: true)
+    # fill_in 'Datep', with: '2018-03-02 02:54:00'
+    # expect(page).to have_field :datep, disabled: true
     click_on 'Create Book'
     visit books_path
     expect(page).to have_content('harry potter')
@@ -13,22 +18,42 @@ RSpec.describe 'Creating a book', type: :feature do
 
   scenario 'valid inputs' do
     visit new_book_path
+    fill_in 'Title', with: 'harry potter'
     fill_in 'Author', with: 'J.K. Rowling'
+    fill_in 'Price', with: '8.0'
+    # field_labeled('Datep', disabled: true)
+    # fill_in 'Datep', with: '2018-03-02 02:54:00'
+    # expect(page).to have_field :datep, disabled: true
     click_on 'Create Book'
+    visit books_path
     expect(page).to have_content('J.K. Rowling')
   end
 
   scenario 'valid inputs' do
     visit new_book_path
-    fill_in 'price', with: '8.00'
+    fill_in 'Title', with: 'harry potter'
+    fill_in 'Author', with: 'J.K. Rowling'
+    fill_in 'Price', with: '8.0'
+    # field_labeled('Datep', disabled: true)
+    # fill_in 'Datep', with: '2018-03-02 02:54:00'
+    # expect(page).to have_field :datep, disabled: true
     click_on 'Create Book'
-    expect(page).to have_content('8.00')
+    visit books_path
+    expect(page).to have_content('8.0')
   end
 
   scenario 'valid inputs' do
     visit new_book_path
-    fill_in 'date', with: '9/01/1998'
+    fill_in 'Title', with: 'harry potter'
+    fill_in 'Author', with: 'J.K. Rowling'
+    fill_in 'Price', with: '8.0'
+    # field_labeled('Datep', disabled: true)
+    # fill_in 'Datep', with: '2018-03-02 02:54:00'
+    # expect(page).to have_field :datep, disabled: true
     click_on 'Create Book'
-    expect(page).to have_content('9/01/1998')
+    visit books_path
+    expect(page).to have_content("Datep")
   end
+
+
 end
