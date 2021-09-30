@@ -14,4 +14,4 @@ RSpec.describe Book, type: :model do
     subject.title = nil
     expect(subject).not_to be_valid
   end
-end
+end 
